@@ -25,7 +25,6 @@ module Erl.Process
   , trapExit
   , unsafeRunProcessM
   , isAlive
-  , module RawExport
   ) where
 
 import Prelude
@@ -146,6 +145,10 @@ instance processHasPid :: Raw.HasPid (Process b) where
 instance selfProcessM :: HasSelf (ProcessM a) a where
   self :: forall a. ProcessM a (Process a)
   self = ProcessM $ Process <$> Raw.self
+
+instance selfProcessTrapM :: HasSelf (ProcessTrapM a) a where
+  self :: forall a. ProcessTrapM a (Process a)
+  self = ProcessTrapM $ Process <$> Raw.self
 
 class HasReceive :: (Type -> Type) -> Type -> Type -> Constraint
 class HasReceive a msg r | a -> msg r where
