@@ -13,6 +13,7 @@
          setProcessFlagTrapExit/1,
          exit/1,
          sendExitSignal/2,
+         link/1,
          unlink/1,
          show_/1,
          isAlive/1
@@ -87,6 +88,8 @@ end.
 exit(Term) -> fun () -> erlang:exit(Term) end.
 
 sendExitSignal(Term, Pid) -> fun () -> erlang:exit(Pid, Term) end.
+
+link(Pid) -> fun() -> erlang:link(Pid) end.
 
 unlink(Pid) -> fun() -> erlang:unlink(Pid) end.
 

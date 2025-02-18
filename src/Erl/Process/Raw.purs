@@ -84,4 +84,6 @@ foreign import sendExitSignal :: Foreign -> Pid -> Effect Unit
 
 foreign import exit :: Foreign -> Effect Unit
 
+foreign import link :: Pid -> Effect Unit
+
 foreign import unlink :: Pid -> Effect Unit
