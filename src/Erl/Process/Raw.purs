@@ -15,6 +15,7 @@ module Erl.Process.Raw
   , getPid
   , exit
   , sendExitSignal
+  , link
   , unlink
   , isAlive
   ) where
